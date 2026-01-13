@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import '../styles/Nav.css'
+import LanguageSwitch from './LanguageSwitch'
+import Notification from './Notification'
 
 import logo from '../assets/seda-logo.png'
 import ThaiFlag from '../assets/ThaiFlag.svg'
@@ -8,6 +10,11 @@ import SearchIcon from '../assets/SearchIcon.svg'
 function Nav() {
 
     const [menu, setMenu] = useState('news');
+    const [isLangOpen, setIsLangOpen] = useState(false);
+    const [isProfileOpen, setIsProfileOpen] = useState(false);
+    const [currentFlag, setCurrentFlag] = useState(ThaiFlag);
+
+    const handleLanguageChange = (flag) => {setCurrentFlag(flag);};
 
     return (
         <header>
@@ -27,7 +34,7 @@ function Nav() {
                         <a href="#"
                             onClick={() => setMenu('news')}
                             className={`menu-btn ${menu === 'news' ? 'active' : ''}`}
-                            >
+                        >
                             News
                         </a>
                     </li>
@@ -36,7 +43,7 @@ function Nav() {
                         <a href="#"
                             onClick={() => setMenu('events')}
                             className={`menu-btn ${menu === 'events' ? 'active' : ''}`}
-                            >    
+                        >
                             Events
                         </a>
                     </li>
@@ -47,10 +54,23 @@ function Nav() {
                 <button className="search-icon-mobile">
                     <img src={SearchIcon} className="SearchIcon" />
                 </button>
-                <button className="lang">
-                    <img src={ThaiFlag} className="Thai" />
-                </button>
-                <button className="profile"></button>
+                <div className="lang-container">
+                    <button className="lang" onClick={() => setIsLangOpen(!isLangOpen)}>
+                        <img src={currentFlag} className="Thai" />
+                    </button>
+                    {isLangOpen &&
+                        <div className="lang-popover">
+                            <LanguageSwitch onSelectLanguage={handleLanguageChange}/>
+                        </div>}
+                </div>
+
+                <div className="profile-container">
+                    <button className="profile" onClick={() => setIsProfileOpen(!isProfileOpen)}></button>
+                    {isProfileOpen &&
+                        <div className="profile-popover">
+                            <Notification />
+                        </div>}
+                </div>
             </div>
         </header>
     )

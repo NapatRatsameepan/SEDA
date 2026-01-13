@@ -1,4 +1,4 @@
-.switch-container {
+.notification-container {
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -7,7 +7,7 @@
     border-radius: 10px;
 }
 
-.switch-container img {
+.notification-container img {
     margin: 8px;
     cursor: pointer;
 }

@@ -57,8 +57,8 @@ header {
 }
 
 .menu-btn {
-  cursor: pointer;        
-  color: var(--Color-gray);  
+  cursor: pointer;
+  color: var(--Color-gray);
 }
 
 .menu-btn.active {
@@ -111,8 +111,8 @@ header {
   .lang {
     display: flex;
     border: none;
-    width: clamp(40px, 4.2vw, 50px);
-    height: clamp(40px, 4.2vw, 50px);
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: white;
     border: 2px solid var(--Color-border);
@@ -127,13 +127,46 @@ header {
 
   .profile {
     border: none;
-    width: clamp(40px, 4.2vw, 50px);
-    height: clamp(40px, 4.2vw, 50px);
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: #d9d9d9;
     border: 2px solid var(--Color-border);
   }
-} 
+}
+.lang-container {
+  position: relative; 
+  display: flex;
+  align-items: center;
+}
+
+.lang-popover {
+  position: absolute;
+  top: 100%; /* วางต่อลงมาจากขอบล่างของปุ่ม 100% */
+  margin-top: 10px; /* ระยะห่างระหว่างปุ่มกับเมนู */
+  z-index: 1000; 
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 50px; 
+}
+
+.profile-container {
+  position: relative; 
+  display: flex;
+  align-items: center;
+}
+
+.profile-popover {
+  position: absolute;
+  top: 100%; /* วางต่อลงมาจากขอบล่างของปุ่ม 100% */
+  margin-top: 10px; /* ระยะห่างระหว่างปุ่มกับเมนู */
+  z-index: 1000; 
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 50px; 
+}
 
 .logo {
   width: clamp(85px, 18.89vw, 111px);
@@ -143,17 +176,17 @@ header {
 
 @media (max-width: 800px) {
   .search input {
-    display: none; 
+    display: none;
   }
 
   .nav-left .search {
-    margin-left: 2rem; 
+    margin-left: 2rem;
   }
 
   .nav-left .search .search-icon {
     display: flex;
-    width: clamp(40px, 4.2vw, 50px);
-    height: clamp(40px, 4.2vw, 50px);
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     border: 2px solid var(--Color-border);
     background: white;
@@ -183,8 +216,8 @@ header {
 
   .search-icon-mobile {
     display: flex;
-    width: clamp(40px, 4.2vw, 50px);
-    height: clamp(40px, 4.2vw, 50px);
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     border: 2px solid var(--Color-border);
     background: white;

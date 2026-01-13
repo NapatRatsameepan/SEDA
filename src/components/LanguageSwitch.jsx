@@ -4,11 +4,12 @@ import '../styles/LanguageSwitch.css'
 import UkFlag from '../assets/UkFlag.svg'
 import ThaiFlag from '../assets/ThaiFlag.svg'
 
-function LanguageSwitch() {
+function LanguageSwitch({ onSelectLanguage }) {
+
   return (
     <div className="switch-container">
-        <img src={ThaiFlag} alt="" />
-        <img src={UkFlag} alt="" />
+        <img src={ThaiFlag} alt="" onClick={() => onSelectLanguage(ThaiFlag)}/>
+        <img src={UkFlag} alt="" onClick={() => onSelectLanguage(UkFlag)}/>
     </div>
   )
 }

@@ -1,0 +1,68 @@
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 8px;
+}
+
+.hero-post {
+  width: 100%;
+  max-width: 1200px;
+  aspect-ratio: 1200 / 630;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.hero-image {
+  display: block; 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;            
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: clamp(15px, 3vw, 35px) clamp(15px, 3vw, 30px);
+  box-sizing: border-box;
+  color: var(--SUT-Orange);
+  background-color: rgba(0, 0, 0, 0.75); 
+  gap: 20px;
+}
+
+.hero-title {
+  font-size: clamp(8px, 1.86vw, 20px);
+  font-weight: 700;
+  white-space: nowrap;      /* ห้ามขึ้นบรรทัดใหม่เด็ดขาด */
+  overflow: hidden;         /* ซ่อนส่วนที่เกินกล่องออกไป */
+  text-overflow: ellipsis;  /* เปลี่ยนส่วนที่เกินให้เป็น ... */
+  flex: 1;             /* สั่งให้ยืดกินพื้นที่ว่างที่เหลือทั้งหมด */
+  min-width: 0;        /* อนุญาตให้หดตัวลงได้เมื่อพื้นที่ไม่พอ (ถ้าไม่ใส่ บรรทัดบนจะไม่ทำงาน) */
+  max-width: 49%;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px; 
+}
+
+.hero-item {
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+  font-size: clamp(6px, 1.4vw, 20px);
+  white-space: nowrap;
+  color: var(--Color-text-white);
+}
+
+.hero-item img {
+  width: clamp(6.9px, 1.6vw, 24px);
+  height: clamp(6.9px, 1.6vw, 24px);
+}

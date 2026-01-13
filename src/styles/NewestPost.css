@@ -1,0 +1,222 @@
+.newest-post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 5px; 
+}
+
+.newest-post-header {
+  max-width: 1200px;  
+  width: 100%;
+  margin: 0 auto;     
+  margin-top: 20px;
+  padding: 0 10px;   
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.newest-post-heading {
+  font-size: clamp(16px, 3.72vw, 24px);   
+  font-weight: 700;
+  margin: 16px 0px;
+  font-style: bold;
+  color: var(--Color-second);   
+  text-align: left;
+}
+
+.newest-post {
+  max-height: 587px;
+  
+  border-radius: 12px;
+  background-color: white;
+  padding: 8px 8px 16px 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  /* --- ส่วนที่เพิ่มใหม่ (หัวใจสำคัญ) --- */
+  display: flex;            /* เปิดใช้ Flexbox */
+  flex-direction: column;   /* เรียงลูกๆ เป็นแนวตั้ง (บนลงล่าง) */
+  justify-content: space-between; /* กระจายเนื้อหา ให้ส่วนท้ายไปชิดขอบล่าง */
+}
+
+.newest-post-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 232.45px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  /* --- เพิ่มส่วนนี้ --- */
+  flex-shrink: 0; /* สั่งห้ามรูปภาพหดตัวเด็ดขาด ไม่ว่าที่ข้างล่างจะเหลือน้อยแค่ไหน */
+}
+
+.newest-post-image {
+  width: 100%;
+  height: 232.45px;
+  border-radius: 10px;
+  overflow: hidden;
+  object-fit: cover;
+}
+ 
+.newest-post-title {
+  width: 100%; 
+  margin: 0;
+  box-sizing: border-box;
+  color: var(--SUT-Orange); 
+  font-size: clamp(8px, 1.86vw, 20px);
+  font-weight: 700;
+  padding: 20px 0px; 
+}
+
+.newest-post-item .newest-post-content {
+  overflow: hidden;
+  font-size: clamp(6px, 1.4vw, 16px);
+  display: -webkit-box;                 /* enable multiline truncation */
+  -webkit-line-clamp: 4;               /* show at most 4 lines, then ellipsis */
+  -webkit-box-orient: vertical;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+}
+
+.newest-post-info {
+  display: flex;
+  margin: 36px 0px 16px 0px;
+  align-items: center;
+  font-size: clamp(6px, 1.4vw, 16px);
+  color: var(--Color-gray);
+}
+
+.newest-post-info .newest-post-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0px;
+  margin-right: 20px;
+  gap: 8px;
+}
+
+.newest-post-info img {
+  height: clamp(10px, 2.33vw, 24px);
+  width: clamp(9px, 2.1vw, 22px);
+  filter: brightness(0) saturate(100%) invert(73%) sepia(3%) saturate(0%) hue-rotate(18deg) brightness(92%) contrast(82%);
+}
+
+@media (max-width: 800px) {
+  .newest-post-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%; 
+    padding: 0px 8px;
+    box-sizing: border-box;
+    gap: 15px;
+  }
+
+  .newest-post:nth-child(n+3) {
+    display: none;
+  }
+
+  .newest-post-heading {
+    margin-left: 10px;
+  }
+}
+
+.view-toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.view-btn {
+  cursor: pointer;        
+  opacity: 0.5;             
+}
+
+.view-btn.active {
+  opacity: 1;             
+}
+
+.divider {
+  color: var(--Color-gray);
+  margin: 0 5px;
+}
+
+.newest-post-grid.list-view {
+  grid-template-columns: 1fr; 
+}
+
+.newest-post-grid.list-view .newest-post {
+  display: flex;        
+  flex-direction: row;  
+  height: auto;         
+  min-height: 220px;    
+  align-items: center;  
+  padding: 16px;
+  gap: 20px;           
+}
+
+.newest-post-grid.list-view .newest-post-image-wrapper {
+  width: 300px;       
+  height: 200px;    
+  flex-shrink: 0;    
+  margin-bottom: 0;   
+}
+
+.newest-post-grid.list-view .newest-post-content {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.newest-post-grid.list-view .newest-post-title {
+  padding: 0 0 10px 0; 
+  font-size: 20px;
+}
+
+.newest-post-grid.list-view .newest-post-info {
+  margin: 10px 0;
+}
+
+.newest-post-grid.list-view .newest-post-item .newest-post-content {
+  -webkit-line-clamp: 3;
+}
+
+@media (max-width: 430px) {
+  .newest-post-grid {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 12px;
+    padding: 0 10px;
+  }
+
+  .newest-post {
+    padding: 8px;
+    border-radius: 10px;
+    min-height: auto;
+    max-height: none;
+  }
+
+  .newest-post-image-wrapper {
+    height: 120px; 
+    margin-bottom: 8px;
+  }
+
+  .newest-post-image {
+    height: 120px;
+  }
+
+  .newest-post-title {
+    font-size: 8px;
+    padding: 8px 0 6px;
+  }
+
+  .newest-post-item .newest-post-content {
+    -webkit-line-clamp: 2;
+    font-size: 6px;
+  }
+
+  .newest-post-info {
+    margin: 6px 0;
+  }
+}
+
